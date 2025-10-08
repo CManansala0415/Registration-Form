@@ -6,7 +6,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet" />
   <script src="jquerycdn.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <title>Registration Form</title>
+  <title>Registration Form (Chalil)</title>
   <style>
     body {
       font-family: Arial, sans-serif;
