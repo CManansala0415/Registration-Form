@@ -123,7 +123,9 @@
         </select>
 
         <label for="nationality">Nationality</label>
-        <input type="text" id="nationality" name="nationality" required>
+        <select id="nationality" name="nationality" required>
+          <option value="" disabled hidden selected>Loading...</option>
+        </select>
       </fieldset>
 
       <fieldset>
@@ -133,19 +135,31 @@
         <input type="text" id="home" name="home" required>
 
         <label for="country">Country</label>
-        <input type="text" id="country" name="country" required>
+        <select id="country" name="country" required>
+          <option value="" disabled hidden selected>Loading...</option>
+        </select>
+
+        <label for="region">Region</label>
+        <select id="region" name="region">
+          <option value="" disabled hidden selected>Select country first</option>
+        </select>
 
         <label for="province">Province</label>
-        <input type="text" id="province" name="province" required>
+        <select id="province" name="province" required>
+          <option value="" disabled hidden selected>Select country first</option>
+        </select>
 
         <label for="city">City</label>
-        <input type="text" id="city" name="city" required>
+        <select id="city" name="city" required>
+          <option value="" disabled hidden selected>Select province first</option>
+        </select>
 
         <label for="barangay">Barangay</label>
-        <input type="text" id="barangay" name="barangay" required>
+        <input list="barangay_list" id="barangay" name="barangay" required placeholder="Select or type barangay">
+        <datalist id="barangay_list"></datalist>
 
         <label for="zipcode">Zipcode</label>
-        <input type="text" id="zipcode" name="zipcode" required>
+        <input type="text" id="zipcode" name="zipcode" required placeholder="Select City First">
       </fieldset>
 
       <button type="submit">Register</button>
