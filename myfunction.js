@@ -1,11 +1,9 @@
 
-function test() {
+function test(){
     $.ajax({
         url: "crud.php",
         type: 'GET',
-        data: {
-
-        },
+        data: {},
         success: function (res) {
             console.log(res);
         }
@@ -13,8 +11,7 @@ function test() {
 }
 
 
-
-function registerPerson(event) {
+function registerPerson(event){
   event.preventDefault(); // prevent form reload
 
   const formData = {
@@ -24,12 +21,13 @@ function registerPerson(event) {
     suffix: document.getElementById("suffix").value.trim(),
     birthday: document.getElementById("bday").value,
     gender: document.getElementById("gender").value,
-    nationality: document.getElementById("nationality").value.trim(),
+    nationality: document.getElementById("nationality").value,
     home: document.getElementById("home").value.trim(),
-    country: document.getElementById("country").value.trim(),
-    province: document.getElementById("province").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    barangay: document.getElementById("barangay").value.trim(),
+    country: document.getElementById("country").value,
+    region: document.getElementById("region").value || '',
+    province: document.getElementById("province").value,
+    city: document.getElementById("city").value,
+    barangay: document.getElementById("barangay").value,
     zipcode: document.getElementById("zipcode").value.trim(),
   };
 

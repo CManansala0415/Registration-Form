@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -123,7 +127,10 @@
         </select>
 
         <label for="nationality">Nationality</label>
-        <input type="text" id="nationality" name="nationality" required>
+        <select id="nationality" name="nationality" required>
+          <option value ="" disabled selected>Select Nationality</option>
+        </select>
+
       </fieldset>
 
       <fieldset>
@@ -133,16 +140,29 @@
         <input type="text" id="home" name="home" required>
 
         <label for="country">Country</label>
-        <input type="text" id="country" name="country" required>
+        <select id="country" name="country" required>
+          <option value="" disabled selected>Select Country</option>
+        </select>
+
+        <label for="region">Region</label>
+        <select id="region" name="region">
+          <option value="" disabled selected>Select Region</option>
+        </select>
 
         <label for="province">Province</label>
-        <input type="text" id="province" name="province" required>
+        <select id="province" name="province" required>
+          <option value="" disabled selected>Select Province</option>
+        </select>
 
         <label for="city">City</label>
-        <input type="text" id="city" name="city" required>
+        <select id="city" name="city" required>
+          <option value="" disabled selected>Select City</option>
+        </select>
 
         <label for="barangay">Barangay</label>
-        <input type="text" id="barangay" name="barangay" required>
+        <select id="barangay" name="barangay" required>
+          <option value="" disabled selected>Select Barangay</option>
+        </select>
 
         <label for="zipcode">Zipcode</label>
         <input type="text" id="zipcode" name="zipcode" required>
@@ -154,6 +174,30 @@
   </div>
 
   <script src="js/bootstrap.min.js"></script>
+  <script>
+    // On page load, fetch countries & nationalities from their endpoints
+    $(function(){
+      $.getJSON('get_countries.php')
+        .done(function(data){
+          if (Array.isArray(data)){
+            let copts = '<option value="" disabled selected>Select Country</option>';
+            data.forEach(function(c){ copts += '<option value="'+c.id+'">'+c.name+'</option>'; });
+            $('#country').html(copts);
+          }
+        })
+        .fail(function(err){ console.error('Failed to load countries', err); });
+
+      $.getJSON('get_nationalities.php')
+        .done(function(data){
+          if (Array.isArray(data)){
+            let nopts = '<option value="" disabled selected>Select Nationality</option>';
+            data.forEach(function(n){ nopts += '<option value="'+n.id+'">'+n.name+'</option>'; });
+            $('#nationality').html(nopts);
+          }
+        })
+        .fail(function(err){ console.error('Failed to load nationalities', err); });
+    });
+  </script>
   <script src="myfunction.js"></script>
 </body>
 </html>
