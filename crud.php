@@ -11,6 +11,7 @@ $nationality = $_POST['nationality'];
 $home        = $_POST['home'];
 $country     = $_POST['country'];
 $province    = $_POST['province'];
+$region      = $_POST['region'];
 $city        = $_POST['city'];
 $barangay    = $_POST['barangay'];
 $zipcode     = $_POST['zipcode'];
@@ -20,11 +21,11 @@ $sql = "
 INSERT INTO persons (
     first_name, middle_name, last_name, suffix_name,
     birthday, gender, nationality,
-    home, country, province, city, barangay, zipcode, created_at
+    home, country, province, region, city, barangay, zipcode, created_at
 ) VALUES (
     '$firstName', '$middleName', '$lastName', '$suffix',
     '$birthday', '$gender', '$nationality',
-    '$home', '$country', '$province', '$city', '$barangay', '$zipcode', NOW()
+    '$home', '$country', '$province', '$region', '$city', '$barangay', '$zipcode', NOW()
 )
 ";
 

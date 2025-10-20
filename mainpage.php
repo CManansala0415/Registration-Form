@@ -122,8 +122,10 @@
           <option value="Other">Other</option>
         </select>
 
-        <label for="nationality">Nationality</label>
-        <input type="text" id="nationality" name="nationality" required>
+         <label for="nationality">nationality</label>
+          <select id="nationality" name="nationality">
+            <option value="">Select a nationality</option>
+          </select>
       </fieldset>
 
       <fieldset>
@@ -132,20 +134,34 @@
         <label for="home">Home</label>
         <input type="text" id="home" name="home" required>
 
-        <label for="country">Country</label>
-        <input type="text" id="country" name="country" required>
+          <label for="country">Country</label>
+          <select id="country" name="country">
+            <option value="">Select a country</option>
+          </select>
 
-        <label for="province">Province</label>
-        <input type="text" id="province" name="province" required>
+          <label for="region">Region</label>
+          <select id="region" name="region" disabled>
+            <option value="">Select a region</option>
+          </select>
 
-        <label for="city">City</label>
-        <input type="text" id="city" name="city" required>
+          <label for="province">Province</label>
+          <select id="province" name="province" disabled>
+            <option value="">Select a province</option>
+          </select>
 
-        <label for="barangay">Barangay</label>
-        <input type="text" id="barangay" name="barangay" required>
+          <label for="city">Municipality</label>
+          <select id="city" name="city" disabled>
+            <option value="">Select a Municipality</option>
+          </select>
 
-        <label for="zipcode">Zipcode</label>
-        <input type="text" id="zipcode" name="zipcode" required>
+          <label for="barangay">Barangay</label>
+          <select id="barangay" name="barangay" disabled>
+            <option value="">Select a barangay</option>
+          </select>
+
+          <label for="zipcode">Zipcode</label>
+          <input type="text" id="zipcode" name="zipcode">
+
       </fieldset>
 
       <button type="submit">Register</button>
@@ -155,5 +171,6 @@
 
   <script src="js/bootstrap.min.js"></script>
   <script src="myfunction.js"></script>
+  <script src="location.js"></script>
 </body>
 </html>

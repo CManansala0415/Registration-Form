@@ -25,11 +25,12 @@ function registerPerson(event) {
     birthday: document.getElementById("bday").value,
     gender: document.getElementById("gender").value,
     nationality: document.getElementById("nationality").value.trim(),
-    home: document.getElementById("home").value.trim(),
-    country: document.getElementById("country").value.trim(),
-    province: document.getElementById("province").value.trim(),
-    city: document.getElementById("city").value.trim(),
-    barangay: document.getElementById("barangay").value.trim(),
+    home: document.getElementById("home").value.trim(), 
+    country: $('#country option:selected').text().trim(),
+    region: $('#region option:selected').text().trim(),
+    province: $('#province option:selected').text().trim(),
+    city: $('#city option:selected').text().trim(),
+    barangay: $('#barangay option:selected').text().trim(),
     zipcode: document.getElementById("zipcode").value.trim(),
   };
 
