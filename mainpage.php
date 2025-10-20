@@ -8,6 +8,24 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <title>Registration Form</title>
   <style>
+    .autocomplete-list {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.autocomplete-item {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.autocomplete-item:hover {
+  background-color: #f1f1f1;
+}
+
     body {
       font-family: Arial, sans-serif;
       background: #f8f9fa;
@@ -94,7 +112,12 @@
 
   <div class="container">
     <h2>Registration Form</h2>
-    <form onsubmit="registerPerson(event)">
+    <!-- Turn off browser autofill for this form to avoid saved-info popup covering suggestions -->
+    <form onsubmit="registerPerson(event)" autocomplete="off">
+
+      <!-- Hidden dummy inputs trick to reduce browser password/autofill popup -->
+      <input type="text" name="fakeusernameremembered" id="fakeusernameremembered" style="position:absolute;left:-9999px;top:-9999px;opacity:0;" autocomplete="off">
+      <input type="password" name="fakepasswordremembered" id="fakepasswordremembered" style="position:absolute;left:-9999px;top:-9999px;opacity:0;" autocomplete="new-password">
 
       <fieldset>
         <legend>Personal Information</legend>
@@ -121,9 +144,11 @@
           <option value="Female">Female</option>
           <option value="Other">Other</option>
         </select>
-
         <label for="nationality">Nationality</label>
-        <input type="text" id="nationality" name="nationality" required>
+  <select id="nationality" name="nationality" required autocomplete="off">
+    <option value="">Select Nationality</option>
+  </select>
+
       </fieldset>
 
       <fieldset>
@@ -132,28 +157,42 @@
         <label for="home">Home</label>
         <input type="text" id="home" name="home" required>
 
-        <label for="country">Country</label>
-        <input type="text" id="country" name="country" required>
+            
 
-        <label for="province">Province</label>
-        <input type="text" id="province" name="province" required>
+            <label for="country">Country:</label>
+  <select id="country" name="country" required autocomplete="off">
+    <option value="">Select Country</option>
+  </select>
 
-        <label for="city">City</label>
-        <input type="text" id="city" name="city" required>
+            <label for="region">Region</label>
+  <select id="region" name="region" required autocomplete="off">
+    <option value="">Select Region</option>
+  </select>
 
-        <label for="barangay">Barangay</label>
-        <input type="text" id="barangay" name="barangay" required>
+            <label for="province">Province:</label>
+  <select id="province" name="province" required autocomplete="off">
+    <option value="">Select Province</option>
+  </select>
 
-        <label for="zipcode">Zipcode</label>
-        <input type="text" id="zipcode" name="zipcode" required>
-      </fieldset>
+            <label for="city">City</label>
+  <select id="city" name="city" required autocomplete="off">
+    <option value="">Select City</option>
+  </select>
+            <label for="barangay">Barangay</label>
+  <select id="barangay" name="barangay" required autocomplete="off">
+    <option value="">Select Barangay</option>
+  </select>
+  
+    <label for="zipcode">ZIP Code</label>
+    <input type="text" id="zipcode" readonly placeholder="Auto-filled ZIP Code" disabled>
 
       <button type="submit">Register</button>
 
     </form>
   </div>
-
+    
   <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="myfunction.js"></script>
 </body>
 </html>
