@@ -1,37 +1,39 @@
 <?php
 require_once('conn.php');
 
-$firstName   = $_POST['firstName'];
-$middleName  = $_POST['middleName'];
-$lastName    = $_POST['lastName'];
-$suffix      = $_POST['suffix'];
-$birthday    = $_POST['birthday'];
-$gender      = $_POST['gender'];
-$nationality = $_POST['nationality'];
-$home        = $_POST['home'];
-$country     = $_POST['country'];
-$province    = $_POST['province'];
-$city        = $_POST['city'];
-$barangay    = $_POST['barangay'];
-$zipcode     = $_POST['zipcode'];
+// Get and sanitize inputs
+$firstName   = mysqli_real_escape_string($conn, $_POST['firstName']);
+$middleName  = mysqli_real_escape_string($conn, $_POST['middleName']);
+$lastName    = mysqli_real_escape_string($conn, $_POST['lastName']);
+$suffix      = mysqli_real_escape_string($conn, $_POST['suffix']);
+$birthday    = mysqli_real_escape_string($conn, $_POST['birthday']);
+$gender      = mysqli_real_escape_string($conn, $_POST['gender']);
+$nationality = mysqli_real_escape_string($conn, $_POST['nationality']);
+$home        = mysqli_real_escape_string($conn, $_POST['home']);
+$country     = mysqli_real_escape_string($conn, $_POST['country']);
+$region      = mysqli_real_escape_string($conn, $_POST['region']);
+$province    = mysqli_real_escape_string($conn, $_POST['province']);
+$city        = mysqli_real_escape_string($conn, $_POST['city']);
+$barangay    = mysqli_real_escape_string($conn, $_POST['barangay']);
+$zipcode     = mysqli_real_escape_string($conn, $_POST['zipcode']);
 
 // Insert into the persons table
 $sql = "
 INSERT INTO persons (
     first_name, middle_name, last_name, suffix_name,
     birthday, gender, nationality,
-    home, country, province, city, barangay, zipcode, created_at
+    home, country, region, province, city, barangay, zipcode, created_at
 ) VALUES (
     '$firstName', '$middleName', '$lastName', '$suffix',
     '$birthday', '$gender', '$nationality',
-    '$home', '$country', '$province', '$city', '$barangay', '$zipcode', NOW()
+    '$home', '$country', '$region', '$province', '$city', '$barangay', '$zipcode', NOW()
 )
 ";
 
 if (mysqli_query($conn, $sql)) {
     echo json_encode([
         "status" => "success",
-        "message" => "New record created successfully!"
+        "message" => "Registration successful!"
     ]);
 } else {
     echo json_encode([
