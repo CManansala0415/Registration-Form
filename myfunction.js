@@ -1,4 +1,3 @@
-
 function test() {
     $.ajax({
         url: "crud.php",
@@ -68,4 +67,3 @@ function registerPerson(event) {
     },
   });
 }
-
