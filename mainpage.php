@@ -88,6 +88,7 @@
         grid-column: span 1;
       }
     }
+    
   </style>
 </head>
 <body>
@@ -122,8 +123,10 @@
           <option value="Other">Other</option>
         </select>
 
-        <label for="nationality">Nationality</label>
-        <input type="text" id="nationality" name="nationality" required>
+        <label>Nationality:</label>
+        <select id="nationality">
+          <option value="">Select Nationality</option>
+        </select>
       </fieldset>
 
       <fieldset>
@@ -132,28 +135,44 @@
         <label for="home">Home</label>
         <input type="text" id="home" name="home" required>
 
-        <label for="country">Country</label>
-        <input type="text" id="country" name="country" required>
+        <label>Country:</label>
+        <select id="country">
+          <option value="">Select Country</option>
+        </select>
 
-        <label for="province">Province</label>
-        <input type="text" id="province" name="province" required>
+        <label>Region:</label>
+<select id="region">
+  <option value="">Select Region</option>
+</select>
 
-        <label for="city">City</label>
-        <input type="text" id="city" name="city" required>
+<label>Province:</label>
+<select id="province">
+  <option value="">Select Province</option>
+</select>
 
-        <label for="barangay">Barangay</label>
-        <input type="text" id="barangay" name="barangay" required>
+<label>City / Municipality:</label>
+<select id="city">
+  <option value="">Select City / Municipality</option>
+</select>
 
-        <label for="zipcode">Zipcode</label>
-        <input type="text" id="zipcode" name="zipcode" required>
+<label>Barangay:</label>
+<select id="barangay">
+  <option value="">Select Barangay</option>
+</select>
+
+
+        <label for="zipcode">ZIP Code:</label>
+<input type="text" id="zipcode" readonly placeholder="Auto-filled ZIP Code"disabled>
       </fieldset>
 
       <button type="submit">Register</button>
 
     </form>
   </div>
-
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/zipcodes-ph@latest/build/index.umd.min.js"></script>
+  <script src="psgc.js"></script>
   <script src="myfunction.js"></script>
 </body>
 </html>
